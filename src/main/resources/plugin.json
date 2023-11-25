@@ -1,0 +1,26 @@
+{
+  "name": "Plugin Template",
+  "description": "Basic plugin implementation",
+  "id": "PluginTemplate",
+  "version": "${version}",
+  "authors": [
+    "xLorey Team"
+  ],
+  "contact": [
+    "xlorey@mail.ru"
+  ],
+  "license": "MIT",
+  "icon": "icon.png",
+  "entrypoints": {
+    "client": [
+      "io.xlorey.plugintemplate.client.ClientPlugin"
+    ],
+    "server": [
+      "io.xlorey.plugintemplate.server.ServerPlugin"
+    ]
+  },
+  "dependencies": {
+    "project-zomboid": "=41.78.16",
+    "flux-loader": "=0.2.0"
+  }
+}
