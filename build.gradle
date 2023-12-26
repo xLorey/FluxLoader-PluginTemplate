@@ -25,11 +25,7 @@ dependencies {
     /**
      * Flux Loader - connects only in compileOnly format
      */
-    compileOnly files("libs/FluxLoader-0.2.0.jar")
-    /**
-     * Zombie - 'zombie' folder from the game directory, packed in a jar archive. Connects only in compileOnly format
-     */
-    compileOnly files("libs/zombie.jar")
+    compileOnly files("libs/FluxLoader-0.6.0.jar")
 }
 
 /**
@@ -38,7 +34,7 @@ dependencies {
 processResources {
     inputs.property "version", project.version
 
-    filesMatching("plugin.json") {
+    filesMatching("metadata.json") {
         expand "version": project.version
     }
 }

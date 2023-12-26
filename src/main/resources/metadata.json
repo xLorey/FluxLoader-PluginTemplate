@@ -21,6 +21,6 @@
   },
   "dependencies": {
     "project-zomboid": "=41.78.16",
-    "flux-loader": "=0.2.0"
+    "flux-loader": "=0.6.0"
   }
 }

@@ -1,8 +1,7 @@
 package io.xlorey.plugintemplate.server;
 
-import io.xlorey.FluxLoader.annotations.SubscribeEvent;
 import io.xlorey.FluxLoader.plugin.Plugin;
-import io.xlorey.FluxLoader.utils.Logger;
+import io.xlorey.FluxLoader.server.core.CommandsManager;
 
 /**
  * Implementing a server plugin
@@ -11,16 +10,28 @@ public class ServerPlugin extends Plugin {
     /**
      * Plugin entry point. Called when a plugin is loaded via FluxLoader.
      */
+    @Override
     public void onInitialize() {
-        Logger.print("Hello world in server!");
-        Logger.print("Test info: " + getPluginInfo().getName());
+        try {
+            CommandsManager.addCommand(new ExampleCommands());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
-     * Example implementation of event subscription. Called after the server is fully initialized
+     * Executing the plugin
      */
-    @SubscribeEvent(eventName="onServerInitialize")
-    public void onServerInitializeHandler(String[] serverStartupArgs){
-        Logger.print("Server is initialized!");
+    @Override
+    public void onExecute() {
+
+    }
+
+    /**
+     * Terminating the plugin
+     */
+    @Override
+    public void onTerminate() {
+
     }
 }
