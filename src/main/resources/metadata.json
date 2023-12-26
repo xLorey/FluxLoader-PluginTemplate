@@ -19,6 +19,7 @@
       "io.xlorey.plugintemplate.server.ServerPlugin"
     ]
   },
+  "controlsEntrypoint": "io.xlorey.plugintemplate.client.Controls",
   "dependencies": {
     "project-zomboid": "=41.78.16",
     "flux-loader": "=0.6.0"
