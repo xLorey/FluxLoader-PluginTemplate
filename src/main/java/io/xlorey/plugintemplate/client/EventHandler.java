@@ -4,7 +4,7 @@ import io.xlorey.FluxLoader.annotations.SubscribeEvent;
 import io.xlorey.FluxLoader.annotations.SubscribeSingleEvent;
 
 /**
- * User and game event handler
+ * Custom and game event handler
  */
 public class EventHandler {
     /**
