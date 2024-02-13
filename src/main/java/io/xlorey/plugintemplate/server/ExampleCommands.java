@@ -1,12 +1,12 @@
 package io.xlorey.plugintemplate.server;
 
-import io.xlorey.FluxLoader.annotations.CommandAccessLevel;
-import io.xlorey.FluxLoader.annotations.CommandChatReturn;
-import io.xlorey.FluxLoader.annotations.CommandExecutionScope;
-import io.xlorey.FluxLoader.annotations.CommandName;
-import io.xlorey.FluxLoader.enums.AccessLevel;
-import io.xlorey.FluxLoader.enums.CommandScope;
-import io.xlorey.FluxLoader.interfaces.ICommand;
+import io.xlorey.fluxloader.annotations.CommandAccessLevel;
+import io.xlorey.fluxloader.annotations.CommandChatReturn;
+import io.xlorey.fluxloader.annotations.CommandExecutionScope;
+import io.xlorey.fluxloader.annotations.CommandName;
+import io.xlorey.fluxloader.enums.AccessLevel;
+import io.xlorey.fluxloader.enums.CommandScope;
+import io.xlorey.fluxloader.interfaces.ICommand;
 import zombie.core.raknet.UdpConnection;
 
 /**

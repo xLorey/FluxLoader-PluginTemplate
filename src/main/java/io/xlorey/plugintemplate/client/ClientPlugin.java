@@ -1,8 +1,8 @@
 package io.xlorey.plugintemplate.client;
 
-import io.xlorey.FluxLoader.plugin.Configuration;
-import io.xlorey.FluxLoader.plugin.Plugin;
-import io.xlorey.FluxLoader.shared.EventManager;
+import io.xlorey.fluxloader.plugin.Configuration;
+import io.xlorey.fluxloader.plugin.Plugin;
+import io.xlorey.fluxloader.shared.ServiceManager;
 
 /**
  * Implementing a client plugin
@@ -41,7 +41,8 @@ public class ClientPlugin extends Plugin {
 
         String defaultConfigText = getConfig().getString("message");
 
-        EventManager.subscribe(new EventHandler());
+        ServiceManager.register(IExample.class, new ExampleImpl());
+
         mainWidget = new MainWidget();
     }
 
@@ -50,8 +51,7 @@ public class ClientPlugin extends Plugin {
      */
     @Override
     public void onExecute() {
-        EventManager.invokeSingleEventAndReturn("pt-log");
-        mainWidget.addToScreenDraw();
+        mainWidget.addToScreen();
     }
 
     /**
@@ -59,6 +59,6 @@ public class ClientPlugin extends Plugin {
      */
     @Override
     public void onTerminate() {
-        mainWidget.removeFromScreenDraw();
+        mainWidget.removeFromScreen();
     }
 }

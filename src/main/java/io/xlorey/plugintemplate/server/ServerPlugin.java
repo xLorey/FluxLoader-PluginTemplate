@@ -1,7 +1,9 @@
 package io.xlorey.plugintemplate.server;
 
-import io.xlorey.FluxLoader.plugin.Plugin;
-import io.xlorey.FluxLoader.server.core.CommandsManager;
+import io.xlorey.fluxloader.enums.EventPriority;
+import io.xlorey.fluxloader.plugin.Plugin;
+import io.xlorey.fluxloader.server.core.CommandsManager;
+import io.xlorey.fluxloader.shared.EventManager;
 
 /**
  * Implementing a server plugin
@@ -12,6 +14,7 @@ public class ServerPlugin extends Plugin {
      */
     @Override
     public void onInitialize() {
+        EventManager.subscribe(new OnServerShutdownHandler(), EventPriority.HIGH);
         try {
             CommandsManager.addCommand(new ExampleCommands());
         } catch (Exception e) {

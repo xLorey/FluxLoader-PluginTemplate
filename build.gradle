@@ -25,7 +25,12 @@ dependencies {
     /**
      * Flux Loader - connects only in compileOnly format
      */
-    compileOnly files("libs/FluxLoader-0.6.0.jar")
+    compileOnly files("libs/FluxLoader-0.8.0.jar")
+
+    /**
+     * Project Zomboid library
+     */
+    compileOnly files("libs/zombie.jar")
 }
 
 /**
