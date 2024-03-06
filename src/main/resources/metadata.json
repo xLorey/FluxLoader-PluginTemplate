@@ -23,6 +23,6 @@
   "controlsEntrypoint": "io.xlorey.plugintemplate.client.Controls",
   "dependencies": {
     "project-zomboid": "=41.78.16",
-    "flux-loader": "=0.8.0"
+    "flux-loader": ">=0.10.0"
   }
 }

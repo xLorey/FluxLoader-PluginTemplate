@@ -2,7 +2,13 @@ package io.xlorey.plugintemplate.client;
 
 import io.xlorey.fluxloader.plugin.Configuration;
 import io.xlorey.fluxloader.plugin.Plugin;
+import io.xlorey.fluxloader.shared.EventManager;
+import io.xlorey.fluxloader.shared.LuaManager;
 import io.xlorey.fluxloader.shared.ServiceManager;
+import io.xlorey.fluxloader.utils.Logger;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Implementing a client plugin
@@ -22,15 +28,24 @@ public class ClientPlugin extends Plugin {
     private MainWidget mainWidget;
 
     /**
+     * Class Instance
+     */
+    public static ClientPlugin instance;
+
+    /**
      * Plugin entry point. Called when a plugin is loaded via FluxLoader.
      */
     @Override
     public void onInitialize() {
+        instance = this;
+
+        EventManager.subscribe(new OnLuaLoadedHandler());
+
         exampleCopy = new Configuration(getConfigPath("example.yml"), this);
         exampleCreate = new Configuration(getConfigPath("exampleOther.yml"), this);
 
-        exampleCopy.copyOrLoadConfig();
-        exampleCreate.create();
+        exampleCopy.load();
+        exampleCreate.load();
 
         saveDefaultConfig();
 
@@ -44,6 +59,13 @@ public class ClientPlugin extends Plugin {
         ServiceManager.register(IExample.class, new ExampleImpl());
 
         mainWidget = new MainWidget();
+
+        Logger.print("~ Start translation example ~");
+        Logger.print(ClientPlugin.instance.getTranslate("hello"));
+        Logger.print(ClientPlugin.instance.getTranslate("test.hello"));
+        Logger.print(ClientPlugin.instance.getTranslate("test.unknown"));
+        Logger.print(ClientPlugin.instance.getTranslate("unknown"));
+        Logger.print("~ End translation example ~");
     }
 
     /**
